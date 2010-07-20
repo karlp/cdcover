@@ -126,3 +126,8 @@ kghostview suse.ps
 You can print the file with the lpr command:
 
 lpr suse.ps
+
+Alternatively, on modern linuxes...
+
+pdflatex suse.tex
+gnome-open suse.pdf
