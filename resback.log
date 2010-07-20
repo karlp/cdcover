@@ -1,0 +1,31 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=latex 1999.11.8)  9 MAY 2000 19:24
+**resback.tex resfront.tex reshead.tex suse.tex
+(resback.tex
+LaTeX2e <1998/12/01> patch level 1
+Babel <v3.6x> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+Runaway argument?
+{\Test \settowidth {\Test \ifthenelse {\lengthtest {\Test { \settowidth \ETC.
+! Paragraph ended before \newlength was complete.
+<to be read again> 
+                   \par 
+l.36 
+     
+? 
+! Emergency stop.
+<to be read again> 
+                   \par 
+l.36 
+     
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 7 strings out of 25901
+ 61 string characters out of 197575
+ 43956 words of memory out of 384000
+ 3020 multiletter control sequences out of 10000+15000
+ 3640 words of font info for 14 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 5i,0n,1p,148b,7s stack positions out of 300i,100n,500p,50000b,4000s
+No pages of output.

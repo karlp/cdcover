@@ -1,0 +1,128 @@
+CDCOVER - CD COVER CREATOR
+
+Creating Data-CD Covers
+
+
+AUTHOR : Ulli Meybohm <ulli@meybohm.de>, www.meybohm.de
+LICENSE: GNU General Public License (read the file "COPYING")
+
+Copyright notice:
+The program uses the tex-template of the GPL'd program
+"disc-cover" (C) Jano van Hemert, which is a great
+program to create covers for audio-cds. It can be found at 
+http://www.liacs.nl/~jvhemert/disc-cover
+
+
+MANUAL
+
+CDCOVER is a little commandline tool which creates
+user-defined data-cd covers. After installing
+the program, open a shell and enter "cdcover". The
+program gives you a overview of the supported
+parameters. Should be easy to use.
+
+
+PARAMETERS 
+
+I will explain the parameters with the following
+example:
+
+I want to create covers for my SuSE
+Linux Distribution, which consists of 6 CDs.
+
+
+
+-c, --count <NUMBER OF CDs>
+Sets the number of cds. The default is "1".
+
+Example: -c 6
+
+
+
+-t, --title <TITLE>
+Sets the title which appears on the top of the 
+frontcover and on the left of each sidetext
+
+Example: -t "SuSE Linux 6.3"
+
+
+
+-s, --subtitle <SUBTITLE>
+Sets the subtitle which appears below the title on the 
+frontcover and on the right of each sidetext. Remember
+that you can use the variables %i (number of the current
+cd-rom) and %n (total number of cd-roms) in every string
+constant (title, subtitle etc...). They will automatically
+be replaced by the program. Now back to the example. I
+wanted to create 6 cover for my Linux Distribution CDs.
+I think it would be good to use the subtitle for the
+enumberation ( Disc 1/6,  Disc 2/6, ... Disc 6/6 ).
+
+Example: -s "Disc %i/%n"
+
+
+
+-b, --backcovertext <BACKCOVERTEXT>
+Sets the text, which should appear on the back of the
+cover. This text can contain linebreaks.
+
+Example 1 : -b "SuSE Linux Distribution Version 6.3"
+Example 2 : -b "`ls -1 /cdrom/*.tgz`
+Example 3 : -b "`cat`" 
+
+
+
+-o, --outputfile <FILENAME>
+Finally you have got to specify the file were the
+latex output will be stored. The file should have
+the extension ".tex". If you don't specify an output
+file, the output will be written on the standard 
+output.
+
+Example: -o suse.tex
+
+
+
+-l, --sidetext-left <SIDETEXT-LEFT>
+This is an optional parameter. Usually the title
+will be printed on the left side of each sidetext.
+If you want an other text than the title use this
+parameter.
+
+
+-r, --sidetext-right <SIDETEXT-RIGHT>
+This is also an optional parameter. Usually the subtitle
+will be printed on the right side of each sidetext.
+If you want an other text than the subtitle use this
+parameter.
+
+
+
+
+
+PRINTING
+
+Now you have the latex file. For example "suse.tex".
+To print or view this text you have to convert the
+file to PostScript. Enter the following commands:
+
+latex suse.tex
+
+If everything works correct you should find the file
+suse.dvi in the current directory. You have to
+convert this dvi-file to PostScript by entering:
+
+dvips suse.dvi -o suse.ps
+
+Now you finally have the postscript-file "suse.ps".
+You can now view this file with any postscript viewer.
+
+For example:
+
+gv suse.ps
+ghostview suse.ps
+kghostview suse.ps
+
+You can print the file with the lpr command:
+
+lpr suse.ps

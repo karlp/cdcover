@@ -1,0 +1,38 @@
+.TH CDCOVER 1
+.SH NAME
+cdcover \- Creating Data-CD Covers
+.SH SYNOPSIS
+.B cdcover
+.RI [ options ]
+.SH DESCRIPTION
+This manual page documents briefly the
+.B cdcover
+command.
+.PP
+\fBcdcover\fP is a program that creates Data-CD Covers.
+.SH OPTIONS
+.B \-t, \-\-title \fI<TITLE>\fP
+Set Frontcover Title
+.TP
+.B \-s, \-\-subtitle \fI<SUBTITLE>\fP
+Set Frontcover Subtitle
+.TP
+.B \-b, \-\-backcovertext \fI<BACKCOVERTEXT>\fP
+Set Backcovertext       (can be multiline)
+.TP
+.B \-l, \-\-sidetext-left \fI<LEFTSIDETEXT>\fP
+Set left sidetext        (default=\fI<TITLE>\fP) 
+.TP
+.B \-r, \-\-sidetext-right \fI<RIGHTSIDETEXT>\fP
+Set right sidetext     (default=\fI<SUBTITLE>\fP)
+.TP 
+.B \-c, \-\-count \fI<COUNT>\fP
+Set Number of CDs              (default=1)
+.TP
+.B \-o, \-\-outputfile \fI<FILENAME>\fP
+Set Outputfile (*.tex)    (default=stdout)
+.SH AUTHOR
+\fBcdcover\fP was written by Ulli Meybohm <ulli@meybohm.de>.
+.PP
+This manual page was written by Adrian Bunk <bunk@fs.tum.de>
+for the Debian GNU/Linux system (but may be used by others).

@@ -1,0 +1,58 @@
+%%%%%%%%
+% BACK %
+%%%%%%%%
+
+
+\newlength{\Test%i}
+\settowidth{\Test%i}{{%SIDETEXTLEFT%}\hfill~{%SIDETEXTRIGHT%}}
+\ifthenelse{\lengthtest{\Test%i > 12.0cm}}
+{
+	\settowidth{\Test%i}{\small {%SIDETEXTLEFT%}\hfill~{%SIDETEXTRIGHT%}}
+	\ifthenelse{\lengthtest{\Test%i > 12.0cm}}
+	{
+		\settowidth{\Test%i}{\footnotesize {%SIDETEXTLEFT%}\hfill~{%SIDETEXTRIGHT%}}
+		\ifthenelse{\lengthtest{\Test%i > 12.0cm}}
+		{
+			\settowidth{\Test%i}{\scriptsize {%SIDETEXTLEFT%}\hfill~{%SIDETEXTRIGHT%}}
+			\ifthenelse{\lengthtest{\Test%i > 12.0cm}}
+			{
+				\newcommand{\sidetext%i}{\parbox{11.6cm}{\tiny {%SIDETEXTLEFT%}\hfill~{%SIDETEXTRIGHT%}}}
+			}
+			{
+				\newcommand{\sidetext%i}{\parbox{11.6cm}{\scriptsize {%SIDETEXTLEFT%}\hfill~{%SIDETEXTRIGHT%}}}
+			}
+		}
+		{
+			\newcommand{\sidetext%i}{\parbox{11.6cm}{\footnotesize {%SIDETEXTLEFT%}\hfill~{%SIDETEXTRIGHT%}}}
+		}
+	}
+	{
+		\newcommand{\sidetext%i}{\parbox{11.6cm}{\small {%SIDETEXTLEFT%}\hfill~{%SIDETEXTRIGHT%}}}
+	}
+}
+{
+	\newcommand{\sidetext%i}{\parbox{11.6cm}{{%SIDETEXTLEFT%}\hfill~{%SIDETEXTRIGHT%}}}
+}
+
+\noindent
+\framebox{\parbox[c][11.6cm][t]{3mm}
+{
+	\rotatebox{90}{\sidetext%i}
+}}\framebox{\parbox[c][11.6cm][t]{13.6cm}
+{
+	\vspace{-0.1cm}
+	\vspace{-0.2cm}
+	\vspace{0.5cm}
+	\color{black}
+
+	{\footnotesize
+	\begin{tabular}{l@{\hspace{1em}}p{5.6cm}l@{}l@{\hspace{1em}}p{5.6cm}}
+%BACKCOVERTEXT%	
+	\end{tabular}
+	}
+}}\framebox{\parbox[c][11.6cm][t]{3mm}
+{
+	\rotatebox{-90}{\sidetext%i}
+}}
+
+%%%%%%%%

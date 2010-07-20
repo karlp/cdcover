@@ -1,0 +1,16 @@
+-h
+--help
+-t
+--title
+-s
+--subtitle
+-b
+--backcovertext
+-c
+--count
+-o
+--outputfile
+-l
+--sidetext-left
+-r
+--sidetext-right

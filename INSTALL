@@ -1,0 +1,36 @@
+CDCOVER INSTALLATION
+----------------
+
+GNU\LINUX and UNIX-Systems:
+    
+    Extract the sourcefiles from the tar-archive.
+    If you have an other c++ compiler than the g++-compiler,
+    you need to change the entry "COMPILER=g++" in the
+    Makefile to "COMPILER=<your compiler name>". 
+    Then type "make" in the direcroty of the ccc-Makefile 
+    to build the executable "ccc".
+    Ccopy the executable in a directory of your
+    choice that is listet in the $PATH Variable. This
+    should usually be "/usr/local/bin" or "/usr/bin".
+    You can also type "make install" to install the
+    file automatically to "/usr/local/bin".
+    
+
+Windows 95,98,2000,NT:
+
+    Unlike all the Unix-Systems, Windows doesn't come 
+    with a C-Compiler. If you haven't got a C-Compiler
+    then first download and install the free compiler 
+    form www.cygnus.com .
+    Extract the files from the tar-archive then start
+    the shell and change the directory in which  you
+    extracted the source-files.
+    If you have an other compiler than the g++-compiler,
+    you need to change the entry "COMPILER=g++" in the
+    Makefile to "COMPILER=<your compiler name>".
+
+
+
+Pre-compiled binaries exist for Windows, GNU\Linux i386
+and Sun Solaris (Sparc Station). Check www.meybohm.de
+for updates.

@@ -1,0 +1,56 @@
+HACKING
+-------
+
+This file is for every hacker who wants to reuse
+some code of the cdcover-program or who wants to
+make improvements or bugfixes. Read this text first.
+
+
+
+STRINGLIB
+
+The cdcover program makes heavy use of the c++-classes
+"Bytevector" and "Stringlist", which are defined
+in bytevector.cc and stringlist.cc.  I don't like
+the stirng-class of the c++ standard library, so I
+have written my own. 
+You can use these classes as black boxes. 
+They are well tested and should work properly.
+Take a look to the header files "bytevector.h" 
+and "stringlist.h" to get information about available
+functions. Only very few functions are needed in cdcover.
+
+
+TEXT2H
+
+text2h is a little program which converts textfiles
+into c++ header files with "char* argv[]" vector
+constants. See text2h.cc for the source code.
+This tool is used to create the string-ressource
+files, which are used to include the tex-templates
+and the cdcover-ressources.
+
+CDCOVER
+
+The cdcover program consists of the following files:
+
+ccc.cc        - main program, parameter, error messages
+cccpara.h     - cdcover parameters
+cccpara2.h    - cdcover parameters WITHOUT value
+                These two files are needed by ccc.cc
+				for parameter-parsing
+
+texmaker.h    - cover class interface is defined here
+texmaker.cc   - implementation of the cover class                
+res*.h        - c++ headers with latex template constants  
+                created from the texfiles by the text2h utility
+
+
+Check especially the "texmaker.*" files, if you want 
+to reuse the cover-generator in other applications.
+
+If you have special questions or if you have made
+improvements feel free to contact me:
+
+cdcover-author:
+Ulli Meybohm : ulli@meybohm.de
