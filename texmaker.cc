@@ -110,6 +110,8 @@ Bytevector Cover::getCover(int i){
 	back.replace("%i",nr);
 	front.replace("%TITLE%",t);
 	front.replace("%SUBTITLE%",s);
+	back.replace("%TITLE%",t);
+	back.replace("%SUBTITLE%",s);
 	
 	if (sidetext_left.size>0) {
 		back.replace("%SIDETEXTLEFT%",sl);
