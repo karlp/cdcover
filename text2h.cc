@@ -47,13 +47,13 @@ int main(int argc, char* argv[]){
 	
 	while( input.freadln(0) ) {
 		count++;
-		Bytevector("{\"").fwrite(1);
+		Bytevector("\"").fwrite(1);
 		input.replace("\\","\\\\");
 		input.replace("\"","\\\"");
 		input.fwrite(1);
-		Bytevector("\"},").fwriteln(1);
+		Bytevector("\",").fwriteln(1);
 	}	
-	Bytevector("{\"\"}\n").fwrite(1);
+	Bytevector("\"\"\n").fwrite(1);
 	pcharend.fwrite(1);
 	linecount.replace("%COUNT%",Bytevector(count));
 	linecount.fwrite(1);

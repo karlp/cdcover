@@ -3,7 +3,7 @@ INSTDIR=$(DESTDIR)/usr/bin
 CFLAGS=-Wall -g -DI_AM_A_SUCKER
 STRINGLIB=bytevector.o stringlist.o
 
-ccc: ccc.o
+ccc: headers ccc.o
 	$(CC) $(STRINGLIB) texmaker.o ccc.o -o cdcover $(CFLAGS)
 
 ccc.o: ccc.cc texmaker.o stringlist.o bytevector.o 
@@ -12,13 +12,13 @@ ccc.o: ccc.cc texmaker.o stringlist.o bytevector.o
 texmaker.o: texmaker.h texmaker.cc stringlist.o bytevector.o
 	$(CC) -c texmaker.cc $(CFLAGS)
 
-headers: 
-	text2h ccchelp <ccchelp.txt >ccchelp.h 
-	text2h cccpara <cccpara.txt >cccpara.h
-	text2h cccpara2 <cccpara2.txt >cccpara2.h
-	text2h reshead <reshead.tex >reshead.h
-	text2h resback <resback.tex >resback.h
-	text2h resfront <resfront.tex >resfront.h
+headers: text2h
+	./text2h ccchelp <ccchelp.txt >ccchelp.h 
+	./text2h cccpara <cccpara.txt >cccpara.h
+	./text2h cccpara2 <cccpara2.txt >cccpara2.h
+	./text2h reshead <reshead.tex >reshead.h
+	./text2h resback <resback.tex >resback.h
+	./text2h resfront <resfront.tex >resfront.h
 
 text2h: text2h.o bytevector.o stringlist.o 
 	$(CC) $(STRINGLIB) text2h.o -o text2h $(CFLAGS)
@@ -33,7 +33,9 @@ stringlist.o: bytevector.o stringlist.h stringlist.cc
 	$(CC) -c stringlist.cc $(CFLAGS)
 
 clean:
-	rm *.o cdcover
+	rm -f *.o cdcover text2h
+	rm -f ccchelp.h cccpara.h cccpara2.h reshead.h resback.h resfront.h
 
 install: ccc
 	cp cdcover $(INSTDIR)
+
