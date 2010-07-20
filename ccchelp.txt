@@ -1,4 +1,4 @@
-CD Cover Creator  Version 0.9.1 (stable)                       
+CD Cover Creator  Version 0.9.2 (stable)
 Creating LaTeX cd-cover files
 Copyright (C) 2000, Ulli Meybohm, www.meybohm.de (GNU General Public License)
 
@@ -19,3 +19,4 @@ for cd-sets with more than one disk. (see example below, 6 CDs)
 Examples:
 cdcover -t "SuSE Linux 6.3" -s "Disc %i/%n" -b "SuSE Linux" -c 6 -o suse.tex
 cdcover -t "Backup" -s "Date: 04-2000" -b "`ls -1 /backup/*.tgz`" -o backup.tex
+cdcover -t "PHOTOS 2009 Vol3" -s "Karl Palsson, www.tweak.net.au" -b "`ls /media/cdrom`" -o cover.tex
