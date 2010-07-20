@@ -12,6 +12,7 @@ ccc.o: ccc.cc texmaker.o stringlist.o bytevector.o
 texmaker.o: texmaker.h texmaker.cc stringlist.o bytevector.o
 	$(CC) -c texmaker.cc $(CFLAGS)
 
+# Fix this to just run text2h when the source files change...
 headers: text2h
 	./text2h ccchelp <ccchelp.txt >ccchelp.h 
 	./text2h cccpara <cccpara.txt >cccpara.h
