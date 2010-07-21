@@ -1,0 +1,125 @@
+[% USE Latex(format='pdf') -%]
+[% FILTER latex %]
+\documentclass[]{article}
+\usepackage{ifthen,graphicx,color}
+\usepackage[latin1]{inputenc}
+\graphicspath{{/tmp/disc-cover-8568/}}
+\renewcommand{\thepage}{}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\voffset}{-100pt}
+\setlength{\footskip}{0pt}
+\setlength{\textheight}{780pt}
+\hyphenpenalty=10000
+\renewcommand{\dotfill}{\leaders\hbox to 2mm{\hfil.\hfil}\hfill}
+
+\newcommand{\mylabel}{\color{black}}
+
+
+\begin{document}
+
+\noindent
+\parbox{11cm}
+{
+{\small Printed with \emph{cd cover creator} (C) (GPL) by Ulli Meybohm, www.meybohm.de
+The program uses the tex-template from Disc-Cover.
+Disc-Cover is available at  \texttt{http://www.liacs.nl/\~{}jvhemert/disc-cover}}
+}
+\vspace{0.5cm}
+
+%%%%%%%%%
+% FRONT %
+%%%%%%%%%
+
+\noindent
+\framebox{\parbox[c][12.0cm][t]{12.0cm}
+{
+\vspace{1cm}
+
+\noindent
+\begin{center}
+{
+\parbox{10cm}{{\Large\color{black}[% title %]}}
+
+\rule{10cm}{1pt}
+\vspace{0.1cm}
+
+\noindent
+\parbox{10cm}{{\hfill\large{\color{black}[% subtitle %]}}}
+}
+\end{center}
+
+\vfill
+\begin{center}
+
+\parbox{10cm}{{\footnotesize\sffamily\mylabel}}
+\end{center}
+
+}}
+
+%%%%%%%%%
+
+
+\vspace{1cm}
+%%%%%%%%
+% BACK %
+%%%%%%%%
+
+
+\newlength{\Testb}
+\settowidth{\Testb}{{[% sidetextleft %]}\hfill~{[% sidetextright %]}}
+\ifthenelse{\lengthtest{\Testb > 12.0cm}}
+{
+	\settowidth{\Testb}{\small {[% sidetextleft %]}\hfill~{[% sidetextright %]}}
+	\ifthenelse{\lengthtest{\Testb > 12.0cm}}
+	{
+		\settowidth{\Testb}{\footnotesize {[% sidetextleft %]}\hfill~{[% sidetextright %]}}
+		\ifthenelse{\lengthtest{\Testb > 12.0cm}}
+		{
+			\settowidth{\Testb}{\scriptsize {[% sidetextleft %]}\hfill~{[% sidetextright %]}}
+			\ifthenelse{\lengthtest{\Testb > 12.0cm}}
+			{
+				\newcommand{\sidetextb}{\parbox{11.6cm}{\tiny {[% sidetextleft %]}\hfill~{[% sidetextright %]}}}
+			}
+			{
+				\newcommand{\sidetextb}{\parbox{11.6cm}{\scriptsize {[% sidetextleft %]}\hfill~{[% sidetextright %]}}}
+			}
+		}
+		{
+			\newcommand{\sidetextb}{\parbox{11.6cm}{\footnotesize {[% sidetextleft %]}\hfill~{[% sidetextright %]}}}
+		}
+	}
+	{
+		\newcommand{\sidetextb}{\parbox{11.6cm}{\small {[% sidetextleft %]}\hfill~{[% sidetextright %]}}}
+	}
+}
+{
+	\newcommand{\sidetextb}{\parbox{11.6cm}{{[% sidetextleft %]}\hfill~{[% sidetextright %]}}}
+}
+
+\noindent
+\framebox{\parbox[c][11.6cm][t]{3mm}
+{
+	\rotatebox{90}{\sidetextb}
+}}\framebox{\parbox[c][11.6cm][t]{13.6cm}
+{
+	\vspace{-0.1cm}
+	\vspace{-0.2cm}
+	\vspace{0.5cm}
+	\color{black}
+
+	{\footnotesize
+	\begin{tabular}{l@{\hspace{1em}}p{5.6cm}l@{}l@{\hspace{1em}}p{5.6cm}}
+[%- FOREACH line IN listing -%]
+[%- FILTER latex_encode -%][%- line- %][%- END -%]\\
+[%- END -%]
+	\end{tabular}
+	}
+}}\framebox{\parbox[c][11.6cm][t]{3mm}
+{
+	\rotatebox{-90}{\sidetextb}
+}}
+
+%%%%%%%%
+\end{document}
+[% END %]
