@@ -1,23 +1,24 @@
-CDCOVER - CD COVER CREATOR
+CDCOVER-ng - CD COVER CREATOR (next generation)
 
 Creating Data-CD Covers
 
 
-AUTHOR : Ulli Meybohm <ulli@meybohm.de>, www.meybohm.de
-LICENSE: GNU General Public License (read the file "COPYING")
+AUTHOR : Karl Palsson, <bugs@tweak.net.au>
+LICENSE: templates GPL, code Apache License
 
 Copyright notice:
-The program uses the tex-template of the GPL'd program
-"disc-cover" (C) Jano van Hemert, which is a great
-program to create covers for audio-cds. It can be found at 
-http://www.liacs.nl/~jvhemert/disc-cover
+This program was originally based on "cdcover" by Ulli Meybohm, <ulli@meybohm.de>,
+www.meybohm.de.  However, the only parts that have been kept are portions of the 
+original .tex templates, which in that package, were attributed to....
 
+The program uses the tex-template of the GPL'd program
+"disc-cover" (C) Jano van Hemert
 
 MANUAL
 
 CDCOVER is a little commandline tool which creates
 user-defined data-cd covers. After installing
-the program, open a shell and enter "cdcover". The
+the program, open a shell and enter "cdcoverng". The
 program gives you a overview of the supported
 parameters. Should be easy to use.
 
@@ -29,13 +30,6 @@ example:
 
 I want to create covers for my SuSE
 Linux Distribution, which consists of 6 CDs.
-
-
-
--c, --count <NUMBER OF CDs>
-Sets the number of cds. The default is "1".
-
-Example: -c 6
 
 
 
