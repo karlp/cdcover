@@ -31,12 +31,14 @@ pod2usage(-exitstatus => 0, -verbose => 2) if $man;
 pod2usage("$0: no template given. You need to choose an output template :)") 
     if ((@ARGV == 0) && (-t STDIN));
 
+my @lineArray = split(/\n/, $listing);
+
 my $vars = {
     sidetextleft => $sidetextleft,
     sidetextright => $sidetextright,
     title => $title,
     subtitle => $subtitle,
-    backcovertext => $listing,
+    listing => \@lineArray,
     };
 
 my $template = $ARGV[0];

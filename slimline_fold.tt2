@@ -45,7 +45,9 @@
 	\color{black}
 	\rotatebox{90}{{\footnotesize
 	\begin{tabular}{l@{\hspace{1em}}p{5.6cm}l@{}l@{\hspace{1em}}p{5.6cm}}
-[% backcovertext %]	
+[%- FOREACH line IN listing -%]
+[%- FILTER latex_encode -%][%- line- %][%- END -%]\\
+[%- END -%]
 	\end{tabular}
 	}}
 }}\framebox{\parbox[c][11.8cm][t]{11.6cm} % halfway through here, we start the inside front cover
@@ -55,4 +57,4 @@
 
 %%%%%%%%
 \end{document}
-[% END -%]
+[% END %]
