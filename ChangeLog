@@ -1,9 +1,0 @@
-2010-07-20 Version 0.9.2
-Back cover now generates a slim cd front cover
-
-2000-05-23 Version 0.9.1
--executable name changed from "ccc" to "cdcover" because the name
-"ccc" was already used by the Compaq C Compiler
-
-2000-05-09 Version 0.9
--first public release
