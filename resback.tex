@@ -35,10 +35,10 @@
 }
 
 \noindent
-\framebox{\parbox[c][11.6cm][t]{12mm}
+\framebox{\parbox[c][11.8cm][t]{10mm}
 {
 	\rotatebox{-90}{\sidetext%i}
-}}\framebox{\parbox[c][11.6cm][t]{12.2cm}
+}}\framebox{\parbox[c][11.8cm][t]{12.2cm}
 {
 
 % ripped from resfront.text
@@ -57,11 +57,14 @@
 
 	\color{black}
 
-	{\footnotesize
+	\rotatebox{90}{{\footnotesize
 	\begin{tabular}{l@{\hspace{1em}}p{5.6cm}l@{}l@{\hspace{1em}}p{5.6cm}}
 %BACKCOVERTEXT%	
 	\end{tabular}
-	}
-}}
+	}}
+}}\framebox{\parbox[c][11.8cm][t]{11.6cm}
+{
+    \rotatebox{90}{}
+}}% this is the inside of the front cover, basically just providing cut/fold lines.
 
 %%%%%%%%
