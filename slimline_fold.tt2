@@ -1,0 +1,58 @@
+[% USE Latex(format='pdf') -%]
+[% FILTER latex %]
+\documentclass[a4paper]{article}
+\usepackage{ifthen,graphicx,color}
+\usepackage[utf8]{inputenc}
+\usepackage[landscape]{geometry}
+\graphicspath{{/tmp/disc-cover-8568/}}
+\renewcommand{\thepage}{}
+\setlength{\voffset}{0mm}
+\setlength{\hoffset}{-25mm}
+\setlength{\footskip}{0pt}
+\hyphenpenalty=10000
+\renewcommand{\dotfill}{\leaders\hbox to 2mm{\hfil.\hfil}\hfill}
+
+\newcommand{\mylabel}{\color{black}}
+
+
+\begin{document}
+
+\noindent
+\framebox{\parbox[c][11.8cm][t]{10mm}
+{
+	\rotatebox{-90}{\parbox{11.6cm}{{~[% sidetextleft %]}\hfill~{[% sidetextright %]}}}
+}}\framebox{\parbox[c][11.8cm][t]{12.2cm}
+{
+
+
+%%% front cover header/subheader
+\noindent
+\begin{center}
+{
+\parbox{10cm}{{\Large\color{black}[% title %]}}
+
+\vspace{0.1cm}
+
+\noindent
+\parbox{10cm}{{\hfill\large{\color{black}[% subtitle %]}}}
+\rule{10cm}{1pt}
+}
+\end{center}
+%%% end of front cover header/subheader
+
+
+%%% start of front cover rotated "file listings"
+	\color{black}
+	\rotatebox{90}{{\footnotesize
+	\begin{tabular}{l@{\hspace{1em}}p{5.6cm}l@{}l@{\hspace{1em}}p{5.6cm}}
+[% backcovertext %]	
+	\end{tabular}
+	}}
+}}\framebox{\parbox[c][11.8cm][t]{11.6cm} % halfway through here, we start the inside front cover
+{
+    \rotatebox{90}{}
+}}
+
+%%%%%%%%
+\end{document}
+[% END -%]

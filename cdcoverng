@@ -1,0 +1,21 @@
+#!/usr/bin/perl -w
+# Karl Palsson, July 2010
+# very rough prototype.
+
+use Template;
+
+my $tt = Template->new({
+#    DEBUG => 'all',
+});
+
+my $vars = {
+    sidetextleft => "side text left",
+    sidetextright => "side text right",
+    title => "photos 2009 vol 29",
+    subtitle => "Karl Palsson, www.tweak.net.au",
+    backcovertext => "some files...",
+    };
+
+my $template = $ARGV[0];
+print "Using template file: $template...\n";
+$tt->process($template, $vars, 'example.pdf', binmode => 1) || die $tt->error();
