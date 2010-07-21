@@ -3,19 +3,109 @@
 # very rough prototype.
 
 use Template;
+use Getopt::Long;
+use Pod::Usage;
 
-my $tt = Template->new({
-#    DEBUG => 'all',
-});
+# Defaults
+my $title = "Title goes here";
+my $subtitle = "Karl Palsson, www.tweak.net.au";
+my $sidetextleft = $title;
+my $sidetextright = $subtitle;
+my $listing = "some files";
+my $outputfile = "sample_output.pdf";
+my ($help, $man);
+
+GetOptions(
+    'title=s' => \$title,
+    'subtitle=s' => \$subtitle,
+    'sidetextleft=s' => \$sidetextleft,
+    'sidetextright=s' => \$sidetextright,
+    'listing=s' => \$listing,
+    'outfile=s' => \$outputfile,
+    'help' => \$help,
+    'man' => \$man,
+) or pod2usage(2);
+
+pod2usage(1) if $help;
+pod2usage(-exitstatus => 0, -verbose => 2) if $man;
+pod2usage("$0: no template given. You need to choose an output template :)") 
+    if ((@ARGV == 0) && (-t STDIN));
 
 my $vars = {
-    sidetextleft => "side text left",
-    sidetextright => "side text right",
-    title => "photos 2009 vol 29",
-    subtitle => "Karl Palsson, www.tweak.net.au",
-    backcovertext => "some files...",
+    sidetextleft => $sidetextleft,
+    sidetextright => $sidetextright,
+    title => $title,
+    subtitle => $subtitle,
+    backcovertext => $listing,
     };
 
 my $template = $ARGV[0];
-print "Using template file: $template...\n";
-$tt->process($template, $vars, 'example.pdf', binmode => 1) || die $tt->error();
+print "Using template file: $template --> $outputfile\n";
+
+my $tt = Template->new({ });
+$tt->process($template, $vars, $outputfile, binmode => 1) || die $tt->error();
+
+
+__END__
+
+=head1 NAME
+
+cdcoverng - Perl script to generate cd covers for data discs in pdf format
+
+=head1 SYNOPSIS
+
+  cdcoverng --title="PHOTOS-backup2009_11" --subtitle="Karl Palsson" 
+        --listing="`ls /media/cdrom`" slimline_fold.tt2
+  cdcoverng --title="movies11" --listing="`cat movies11.description" 
+        someOtherTemplate.tt2
+
+=head1 ABSTRACT
+
+  Makes reliable print formatted pdfs suitable for cutting up and using
+  as CD cover inserts.  Not many templates are currently included, but
+  they're documented as well as possible, and any template supported by
+  Perl's Template::Toolkit should "just work"  cdcoverng is mostly just
+  a wrapper around the provided templates.
+
+=head1 OPTIONS
+
+=over 8
+
+=item B<--title text> I<(default "Title goes here")>
+
+What to use as the primary title...
+
+=item B<--subtitle text> I<(default "Karl Palsson, www.tweak.net.au")>
+
+Second line of title text
+
+=item B<--outfile> I<(default sample_output.pdf)>
+
+The name of the output pdf file to be written
+
+=item B<--listing>
+
+The text to include in the main panel of the cd cover.  Probably multiline.
+
+=item B<--sidetextleft> I<(default $title)>
+
+Text to put on the spine, or alternative position.
+
+=item B<--sidetextright> I<(default $subtitle)>
+
+Text to put on the spine, or alternative position.
+
+=back
+
+=head1 AUTHOR
+
+Karl Palsson, E<lt>bugs@tweak.net.au<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2010, Karl Palsson.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
